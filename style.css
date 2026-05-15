@@ -36,9 +36,9 @@
 }
 
 .category h2{
-    text-decoration: underline 10px blue;
     font-size: 24px;
-    margin:20px;
+    margin:20px 1080px 20px 20px;
+    border-bottom: 5px solid blue;
 }
 .categories{
     display: flex;
@@ -69,12 +69,11 @@
 }
 
 .featured h2{
-    text-decoration: underline 10px blue;
+    text-decoration: underline 5px blue;
     font-size: 24px;
     margin:20px;
 }
 .products{
-    /* padding: 10px; */
     height: 350px;
     display: flex;
     flex-wrap: wrap;
@@ -92,7 +91,7 @@
     width: 200px;
     height: 300px;
     border-radius: 10px;
-    box-shadow: 0px 0px 5px rgb(124, 124, 124);
+    box-shadow: 0px 0px 3px rgb(124, 124, 124);
     transition: transform 0.3s ease;
 }
 
@@ -109,4 +108,31 @@
 
 .product-item i{
     color: orange;
+}
+
+.banner a img{
+    width: 100%;
+    height:500px;
+}
+
+.features{
+    display: flex;
+    margin: 20px 200px;
+    justify-content: center;
+    align-items: center ;
+    background-color: rgb(240, 240, 240);
+}
+
+.feature-card{
+    width: 100%;
+    height: 80px;
+    display: flex;
+    justify-content: space-evenly;
+    padding: 10px;
+    align-items: center;
+    border-right: 1px solid black;
+}
+
+.feature-card i{
+    font-size: 20px;
 }
