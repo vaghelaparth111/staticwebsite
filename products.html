@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #f5f5f5;
+        }
+
+        .products-section {
+            width: 100%;
+            min-height: 100vh;
+            padding: 80px 8%;
+            background: white;
+        }
+
+        .products-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .products-title h1 {
+            font-size: 50px;
+            color: #111827;
+            margin-bottom: 15px;
+        }
+
+        .products-title span {
+            color: #6c63ff;
+        }
+
+        .products-title p {
+            color: #6b7280;
+            font-size: 18px;
+        }
+
+        .category {
+            margin-bottom: 70px;
+        }
+
+        .category h2 {
+            font-size: 35px;
+            margin-bottom: 30px;
+            color: #111827;
+            border-left: 6px solid #6c63ff;
+            padding-left: 15px;
+        }
+
+        .product-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .product-card {
+            background: #f9fafb;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            transition: 0.3s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .product-card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .product-content {
+            padding: 20px;
+        }
+
+        .product-content h3 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            color: #111827;
+        }
+
+        .product-content p {
+            color: #6b7280;
+            margin-bottom: 15px;
+            line-height: 26px;
+        }
+
+        .price {
+            font-size: 22px;
+            font-weight: bold;
+            color: #6c63ff;
+            margin-bottom: 15px;
+        }
+
+        .product-btn {
+            display: inline-block;
+            padding: 12px 25px;
+            background: #6c63ff;
+            color: white;
+            text-decoration: none;
+            border-radius: 10px;
+            transition: 0.3s;
+        }
+
+        .product-btn:hover {
+            background: #5548e8;
+        }
+
+        @media(max-width:768px) {
+
+            .products-title h1 {
+                font-size: 40px;
+            }
+
+            .category h2 {
+                font-size: 28px;
+            }
+
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <section class="products-section">
+        <div class="category">
+            <h2>Electronics</h2>
+
+            <div class="product-container">
+
+                <div class="product-card">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?q=80&w=1200&auto=format&fit=crop">
+
+                    <div class="product-content">
+
+                        <h3>Smartphone</h3>
+
+                        <p>Latest premium smartphone with modern features.</p>
+
+                        <div class="price">₹29,999</div>
+
+                        <a href="#" class="product-btn">Add To Cart</a>
+
+                    </div>
+
+                </div>
+
+                <div class="product-card">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?q=80&w=1200&auto=format&fit=crop">
+
+                    <div class="product-content">
+
+                        <h3>Wireless Headphones</h3>
+
+                        <p>High-quality sound with noise cancellation.</p>
+
+                        <div class="price">₹2,999</div>
+
+                        <a href="#" class="product-btn">Add To Cart</a>
+
+                    </div>
+
+                </div>
+
+                <div class="product-card">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1546868871-7041f2a55e12?q=80&w=1200&auto=format&fit=crop">
+
+                    <div class="product-content">
+
+                        <h3>Smart Watch</h3>
+
+                        <p>Track your fitness and daily activities easily.</p>
+
+                        <div class="price">₹4,499</div>
+
+                        <a href="#" class="product-btn">Add To Cart</a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="category">
+
+            <h2>Fashion</h2>
+
+            <div class="product-container">
+
+                <div class="product-card">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1521572267360-ee0c2909d518?q=80&w=1200&auto=format&fit=crop">
+
+                    <div class="product-content">
+
+                        <h3>Men T-Shirt</h3>
+
+                        <p>Comfortable and stylish cotton t-shirt.</p>
+
+                        <div class="price">₹999</div>
+
+                        <a href="#" class="product-btn">Add To Cart</a>
+
+                    </div>
+
+                </div>
+
+                <div class="product-card">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1496747611176-843222e1e57c?q=80&w=1200&auto=format&fit=crop">
+
+                    <div class="product-content">
+
+                        <h3>Women Dress</h3>
+
+                        <p>Trendy and elegant fashion wear collection.</p>
+
+                        <div class="price">₹1,899</div>
+
+                        <a href="#" class="product-btn">Add To Cart</a>
+
+                    </div>
+
+                </div>
+
+                <div class="product-card">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=1200&auto=format&fit=crop">
+
+                    <div class="product-content">
+
+                        <h3>Running Shoes</h3>
+
+                        <p>Comfortable sports shoes for everyday use.</p>
+
+                        <div class="price">₹3,299</div>
+
+                        <a href="#" class="product-btn">Add To Cart</a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="category">
+
+            <h2>Accessories</h2>
+
+            <div class="product-container">
+
+                <div class="product-card">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1523170335258-f5ed11844a49?q=80&w=1200&auto=format&fit=crop">
+
+                    <div class="product-content">
+
+                        <h3>Luxury Watch</h3>
+
+                        <p>Premium watch with elegant modern design.</p>
+
+                        <div class="price">₹5,999</div>
+
+                        <a href="#" class="product-btn">Add To Cart</a>
+
+                    </div>
+
+                </div>
+
+                <div class="product-card">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?q=80&w=1200&auto=format&fit=crop">
+
+                    <div class="product-content">
+
+                        <h3>Backpack</h3>
+
+                        <p>Stylish travel backpack with large storage.</p>
+
+                        <div class="price">₹2,199</div>
+
+                        <a href="#" class="product-btn">Add To Cart</a>
+
+                    </div>
+
+                </div>
+
+                <div class="product-card">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1511499767150-a48a237f0083?q=80&w=1200&auto=format&fit=crop">
+
+                    <div class="product-content">
+
+                        <h3>Sunglasses</h3>
+
+                        <p>Modern stylish sunglasses for daily fashion.</p>
+
+                        <div class="price">₹1,299</div>
+
+                        <a href="#" class="product-btn">Add To Cart</a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="category">
+
+            <h2>Beauty</h2>
+
+            <div class="product-container">
+
+                <div class="product-card">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?q=80&w=1200&auto=format&fit=crop">
+
+                    <div class="product-content">
+
+                        <h3>Beauty Kit</h3>
+
+                        <p>Premium skincare and beauty essentials.</p>
+
+                        <div class="price">₹2,499</div>
+
+                        <a href="#" class="product-btn">Add To Cart</a>
+
+                    </div>
+
+                </div>
+
+                <div class="product-card">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?q=80&w=1200&auto=format&fit=crop">
+
+                    <div class="product-content">
+
+                        <h3>Perfume</h3>
+
+                        <p>Luxury fragrance with long-lasting freshness.</p>
+
+                        <div class="price">₹1,799</div>
+
+                        <a href="#" class="product-btn">Add To Cart</a>
+
+                    </div>
+
+                </div>
+
+                <div class="product-card">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1515377905703-c4788e51af15?q=80&w=1200&auto=format&fit=crop">
+
+                    <div class="product-content">
+
+                        <h3>Makeup Set</h3>
+
+                        <p>Professional makeup collection for all styles.</p>
+
+                        <div class="price">₹3,499</div>
+
+                        <a href="#" class="product-btn">Add To Cart</a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</body>
+
+</html>

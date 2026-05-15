@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Categories</title>
+    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+    <script>
+        $(function () {
+            $("#header").load("header.html");
+            $("#footer").load("footer.html");
+        });
+    </script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #f5f5f5;
+        }
+
+        .category-section {
+            width: 100%;
+            min-height: 100vh;
+            padding: 50px 10%;
+            background: white;
+        }
+
+        .category-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .category-title h1 {
+            font-size: 50px;
+            color: #111827;
+            margin-bottom: 15px;
+        }
+
+        .category-title span {
+            color: #6c63ff;
+        }
+
+        .category-title p {
+            color: #ffffff;
+            font-size: 18px;
+        }
+
+        .category-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .category-card {
+            background: #f7f7ff;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            transition: 0.3s;
+        }
+
+        .category-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .category-card img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+        }
+
+        .category-content {
+            padding: 25px;
+            text-align: center;
+        }
+
+        .category-content h2 {
+            margin-bottom: 15px;
+            color: #111827;
+            font-size: 28px;
+        }
+
+        .category-content p {
+            color: #6b7280;
+            line-height: 28px;
+            margin-bottom: 20px;
+        }
+
+        .category-btn {
+            display: inline-block;
+            padding: 12px 25px;
+            background: #6c63ff;
+            color: white;
+            text-decoration: none;
+            border-radius: 10px;
+            transition: 0.3s;
+        }
+
+        .category-btn:hover {
+            background: #5548e8;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div id="header"></div>
+
+    <section class="category-section">
+        <div class="category-container">
+            <div class="category-card">
+                <img src="https://res.cloudinary.com/dksz8hsb4/image/upload/v1749059975/qjnmnowwefmqllpqxkvj.jpg" alt="Electronics">
+                <div class="category-content">
+                    <h2 class="electronics">Electronics</h2>
+                    <p>Explore smart gadgets, headphones, speakers, and modern electronics.</p>
+                    <a href="products.html" class="category-btn">View Products</a>
+                </div>
+            </div>
+            <div class="category-card">
+                <img src="https://res.cloudinary.com/dksz8hsb4/image/upload/v1749058587/vgt63ew54utyj9mwzyin.webp" alt="Fashion">
+                <div class="category-content">
+                    <h2>Fashion</h2>
+                    <p>Explore trendy outfits, stylish clothes, and premium fashion wear.</p>
+                    <a href="products.html" class="category-btn">View Products</a>
+                </div>
+            </div>
+            <div class="category-card">
+                <img src="https://res.cloudinary.com/dksz8hsb4/image/upload/v1747928788/file_1734777082736_aadi-men-s-white-black-grey-mesh-outdoor-casual-shoes-product-images-rvx9gighvn-0-202307071301_chnatt.jpg" alt="Shoes">
+                <div class="category-content">
+                    <h2>Shoes</h2>
+                    <p>Comfortable and stylish shoes for everyday fashion and sports.</p>
+                    <a href="products.html" class="category-btn">View Products</a>
+                </div>
+            </div>
+            <div class="category-card">
+                <img src="https://res.cloudinary.com/dksz8hsb4/image/upload/v1749055569/ld4eyyjnew21hjhafnkc.webp" alt="Bags">
+                <div class="category-content">
+                    <h2>Bags</h2>
+                    <p>Shop premium backpacks, handbags, and travel accessories.</p>
+                    <a href="products.html" class="category-btn">View Products</a>
+                </div>
+            </div>
+            <div class="category-card">
+                <img src="https://res.cloudinary.com/dksz8hsb4/image/upload/v1749226241/av2o24zv9vjcqznkhigu.jpg" alt="Accessories">
+                <div class="category-content">
+                    <h2>Accessories</h2>
+                    <p>Upgrade your style with watches, glasses, and smart accessories.</p>
+                    <a href="products.html" class="category-btn">View Products</a>
+                </div>
+            </div>
+            <div class="category-card">
+                <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?q=80&w=1200&auto=format&fit=crop" alt="Beauty">
+                <div class="category-content">
+                    <h2>Beauty</h2>
+                    <p>Explore skincare, beauty products, and premium cosmetics collections.</p>
+                    <a href="products.html" class="category-btn">View Products</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div id="footer"></div>
+
+</body>
+
+</html>

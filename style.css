@@ -38,7 +38,8 @@
 .category h2, .featured h2, .trending h2, .review h2{
     font-size: 24px;
     margin:20px;
-    text-decoration: underline 10px blue;
+    padding: 10px;
+    border-left: 10px solid blue;
 }
 .categories{
     display: flex;
@@ -114,17 +115,17 @@
 
 .features{
     display: flex;
-    margin: 20px 200px 30px 200px;
+    margin: 20px 180px 30px 180px;
     justify-content: center;
     align-items: center ;
-    background-color: rgb(240, 240, 240);
+    background-color: #d2dafd;
 }
 
 .feature-card{
     width: 100%;
     height: 80px;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-around;
     padding: 10px;
     align-items: center;
     border-right: 1px solid black;
@@ -144,7 +145,7 @@
     align-items: center;
     justify-content: left;
     gap: 30px;
-    padding: 10px 163px;
+    padding: 20px 163px;
 }
 
 .trending-products .product-item img{
@@ -178,6 +179,12 @@
     padding: 20px;
     background-color: #e5eaff;
     border-radius: 10px;
+    cursor:default;
+    transition:ease 0.3s ;
+}
+
+.review-card:hover{
+    transform: scale(1.1);
 }
 
 .review-card p{
