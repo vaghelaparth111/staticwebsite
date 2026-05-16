@@ -24,13 +24,11 @@
             box-sizing:border-box;
             font-family:Arial, sans-serif;
         }
-
-        body{
-            height:100vh;
-            display:flex;
-            justify-content:center;
-            align-items:center;
-            background:#f5f5f5;
+        .logout{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 5%;
         }
 
         .logout-container{
@@ -101,61 +99,26 @@
         }
 
     </style>
-
 </head>
-
-<body
+<body>
     <div id="header"></div>
-
+<section class="logout">
     <div class="logout-container">
-
-        <div class="logout-icon">
-
-            🚪
-
-        </div>
-
         <h1>Logout</h1>
-
-        <p>
-            Are you sure you want to logout
-            from your ShopVerse account?
-        </p>
-
+        <p>Are you sure you want to logout from your ShopVerse account?</p>
         <div class="buttons">
-
-            <a href="index.html" class="cancel-btn">
-
-                Cancel
-
-            </a>
-
-            <a href="#" class="logout-btn" onclick="logout()">
-
-                Logout
-
-            </a>
-
+            <a href="index.html" class="cancel-btn">Cancel</a>
+            <a href="#" class="logout-btn" onclick="logout()">Logout</a>
         </div>
-
     </div>
-
-    <script>
-
-        function logout(){
-
-            localStorage.removeItem("cart");
-
-            alert("Logged Out Successfully ✅");
-
-            window.location.href = "login.html";
-
-        }
-
-    </script>
-
+</section>
     <div id="footer"></div>
-
+    <script>
+        function logout(){
+            localStorage.removeItem("cart");
+            alert("Logged Out Successfully");
+            window.location.href = "login.html";
+        }
+    </script>
 </body>
-
 </html>

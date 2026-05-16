@@ -5,14 +5,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Payment Page</title>
-    <script src="https://code.jquery.com/jquery-3.3.1.js"
-        integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
-    <script>
-        $(function () {
-            $("#header").load("header.html");
-            $("#footer").load("footer.html");
-        });
-    </script>
 
     <style>
 
@@ -163,9 +155,6 @@
 
 <body>
 
-    <div id="header"></div>
-
-
     <div class="payment-container">
 
         <div class="payment-left">
@@ -182,7 +171,7 @@
 
         <div class="payment-right">
 
-            <h2>Payment Details</h2>
+            <h2>Payment Details 💳</h2>
 
             <p>
                 Enter your payment information below
@@ -280,10 +269,6 @@
 
     </div>
 
-
-    <div id="footer"></div>
-
-
     <script>
 
         let form = document.getElementById("paymentForm");
@@ -302,7 +287,7 @@
 
             localStorage.removeItem("cart");
 
-            alert("Payment Successful");
+            alert("Payment Successful ✅");
 
             window.location.href = "orderhistory.html";
 

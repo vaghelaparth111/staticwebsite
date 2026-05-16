@@ -22,7 +22,7 @@
         .contact-section {
             width: 100%;
             min-height: 100vh;
-            padding: 80px 10%;
+            padding: 2% 5% 5% 5%;
             background: white;
         }
 
@@ -38,7 +38,7 @@
         }
 
         .contact-title span {
-            color: #6c63ff;
+            color: blue;
         }
 
         .contact-title p {
@@ -81,7 +81,7 @@
         }
 
         .input-box input:focus, .input-box textarea:focus {
-            border-color: #6c63ff;
+            border-color: blue;
         }
 
         .input-box textarea {
@@ -89,11 +89,11 @@
             resize: none;
         }
 
-        .contact-btn {
+        .send-message {
             width: 100%;
             padding: 15px;
             border: none;
-            background: #6c63ff;
+            background: rgb(75, 75, 255);
             color: white;
             font-size: 18px;
             border-radius: 10px;
@@ -101,8 +101,8 @@
             transition: 0.3s;
         }
 
-        .contact-btn:hover {
-            background: #5548e8;
+        .send-message:hover {
+            background: blue;
         }
 
         .contact-map {
@@ -127,44 +127,26 @@
     <div id="header"></div>
 
     <section class="contact-section">
-
         <div class="contact-title">
-
-            <h1>Contact <span>Us</span></h1>
-
-            <p>
-                Have questions? We'd love to hear from you.
-            </p>
-
+            <h1>Contact<span>Us</span></h1>
         </div>
-
         <div class="contact-container">
-
             <div class="contact-form">
-
                 <h2>Send Message</h2>
-
                 <form>
-
                     <div class="input-box">
                         <input type="text" placeholder="Your Name" required>
                     </div>
-
                     <div class="input-box">
                         <input type="email" placeholder="Your Email" required>
                     </div>
-
                     <div class="input-box">
                         <input type="text" placeholder="Subject" required>
                     </div>
-
                     <div class="input-box">
                         <textarea placeholder="Write Your Message"></textarea>
                     </div>
-
-                    <button class="contact-btn">
-                        Send Message
-                    </button>
+                    <button class="send-message">Send Message</button>
 
                 </form>
 
