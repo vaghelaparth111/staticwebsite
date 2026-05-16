@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>My Profile</title>
+    <script src="https://code.jquery.com/jquery-3.3.1.js"
+        integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+    <script>
+        $(function () {
+            $("#header").load("header.html");
+            $("#footer").load("footer.html");
+        });
+    </script>
+
+    <style>
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:Arial, sans-serif;
+        }
+
+        body{
+            background:#f5f5f5;
+            padding:40px 8%;
+        }
+
+        .profile-container{
+            max-width:1100px;
+            margin:auto;
+            background:white;
+            border-radius:25px;
+            overflow:hidden;
+            box-shadow:0 10px 30px rgba(0,0,0,0.08);
+        }
+
+        .profile-header{
+            background:linear-gradient(135deg,#6c63ff,#5548e8);
+            padding:60px 40px;
+            color:white;
+            text-align:center;
+        }
+
+        .profile-image{
+            width:140px;
+            height:140px;
+            border-radius:50%;
+            border:5px solid white;
+            object-fit:cover;
+            margin-bottom:20px;
+        }
+
+        .profile-header h1{
+            font-size:40px;
+            margin-bottom:10px;
+        }
+
+        .profile-header p{
+            font-size:18px;
+            opacity:0.9;
+        }
+
+        .profile-content{
+            padding:50px;
+        }
+
+        .profile-grid{
+            display:grid;
+            grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+            gap:30px;
+        }
+
+        .profile-card{
+            background:#f9fafb;
+            padding:30px;
+            border-radius:20px;
+            box-shadow:0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        .profile-card h2{
+            margin-bottom:25px;
+            color:#111827;
+            font-size:28px;
+        }
+
+        .info{
+            margin-bottom:20px;
+        }
+
+        .info label{
+            display:block;
+            margin-bottom:8px;
+            color:#6b7280;
+            font-size:15px;
+        }
+
+        .info input{
+            width:100%;
+            padding:14px;
+            border:1px solid #d1d5db;
+            border-radius:10px;
+            outline:none;
+            font-size:16px;
+        }
+
+        .save-btn{
+            margin-top:20px;
+            width:100%;
+            padding:15px;
+            border:none;
+            background:#6c63ff;
+            color:white;
+            font-size:17px;
+            border-radius:10px;
+            cursor:pointer;
+            transition:0.3s;
+        }
+
+        .save-btn:hover{
+            background:#5548e8;
+        }
+
+        .order-card{
+            background:white;
+            padding:20px;
+            border-radius:15px;
+            margin-bottom:20px;
+            border:1px solid #e5e7eb;
+        }
+
+        .order-card h3{
+            margin-bottom:10px;
+            color:#111827;
+        }
+
+        .order-card p{
+            color:#6b7280;
+            margin-bottom:5px;
+        }
+
+        .status{
+            display:inline-block;
+            margin-top:10px;
+            padding:8px 15px;
+            background:#10b981;
+            color:white;
+            border-radius:30px;
+            font-size:14px;
+        }
+
+        @media(max-width:768px){
+
+            body{
+                padding:20px;
+            }
+
+            .profile-header h1{
+                font-size:32px;
+            }
+
+            .profile-content{
+                padding:30px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <div id="header"></div>
+
+    <div class="profile-container">
+
+        <div class="profile-header">
+
+            <img 
+                src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=1200&auto=format&fit=crop"
+                class="profile-image"
+            >
+
+            <h1>Parth Vaghela</h1>
+
+            <p>
+                Welcome to your ShopVerse profile dashboard
+            </p>
+
+        </div>
+
+        <div class="profile-content">
+
+            <div class="profile-grid">
+
+                <div class="profile-card">
+
+                    <h2>Personal Information</h2>
+
+                    <div class="info">
+
+                        <label>Full Name</label>
+
+                        <input 
+                            type="text"
+                            value="Parth Vaghela"
+                        >
+
+                    </div>
+
+                    <div class="info">
+
+                        <label>Email Address</label>
+
+                        <input 
+                            type="email"
+                            value="parth@example.com"
+                        >
+
+                    </div>
+
+                    <div class="info">
+
+                        <label>Phone Number</label>
+
+                        <input 
+                            type="text"
+                            value="+91 9876543210"
+                        >
+
+                    </div>
+
+                    <div class="info">
+
+                        <label>Address</label>
+
+                        <input 
+                            type="text"
+                            value="Ahmedabad, Gujarat"
+                        >
+
+                    </div>
+
+                    <button class="save-btn">
+
+                        Save Changes
+
+                    </button>
+
+                </div>
+
+                <div class="profile-card">
+
+                    <h2>Recent Orders</h2>
+
+                    <div class="order-card">
+
+                        <h3>Wireless Headphones</h3>
+
+                        <p>Order ID : #SV1025</p>
+
+                        <p>Price : ₹2,999</p>
+
+                        <span class="status">
+                            Delivered
+                        </span>
+
+                    </div>
+
+                    <div class="order-card">
+
+                        <h3>Smart Watch</h3>
+
+                        <p>Order ID : #SV2048</p>
+
+                        <p>Price : ₹4,499</p>
+
+                        <span class="status">
+                            Delivered
+                        </span>
+
+                    </div>
+
+                    <div class="order-card">
+
+                        <h3>Running Shoes</h3>
+
+                        <p>Order ID : #SV3321</p>
+
+                        <p>Price : ₹3,299</p>
+
+                        <span class="status">
+                            Delivered
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div id="footer"></div>
+
+
+</body>
+
+</html>
