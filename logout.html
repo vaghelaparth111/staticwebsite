@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Logout</title>
+    <script src="https://code.jquery.com/jquery-3.3.1.js"
+        integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+    <script>
+        $(function () {
+            $("#header").load("header.html");
+            $("#footer").load("footer.html");
+        });
+    </script>
+
+    <style>
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:Arial, sans-serif;
+        }
+
+        body{
+            height:100vh;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            background:#f5f5f5;
+        }
+
+        .logout-container{
+            width:450px;
+            background:white;
+            padding:50px;
+            border-radius:25px;
+            text-align:center;
+            box-shadow:0 10px 30px rgba(0,0,0,0.08);
+        }
+
+        .logout-icon{
+            width:100px;
+            height:100px;
+            margin:auto;
+            margin-bottom:25px;
+            border-radius:50%;
+            background:#fee2e2;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            font-size:50px;
+        }
+
+        .logout-container h1{
+            font-size:38px;
+            color:#111827;
+            margin-bottom:15px;
+        }
+
+        .logout-container p{
+            color:#6b7280;
+            line-height:28px;
+            margin-bottom:35px;
+            font-size:17px;
+        }
+
+        .buttons{
+            display:flex;
+            gap:15px;
+        }
+
+        .buttons a{
+            flex:1;
+            padding:14px;
+            text-decoration:none;
+            border-radius:10px;
+            font-size:16px;
+            transition:0.3s;
+        }
+
+        .cancel-btn{
+            background:#e5e7eb;
+            color:#111827;
+        }
+
+        .cancel-btn:hover{
+            background:#d1d5db;
+        }
+
+        .logout-btn{
+            background:#ef4444;
+            color:white;
+        }
+
+        .logout-btn:hover{
+            background:#dc2626;
+        }
+
+    </style>
+
+</head>
+
+<body
+    <div id="header"></div>
+
+    <div class="logout-container">
+
+        <div class="logout-icon">
+
+            🚪
+
+        </div>
+
+        <h1>Logout</h1>
+
+        <p>
+            Are you sure you want to logout
+            from your ShopVerse account?
+        </p>
+
+        <div class="buttons">
+
+            <a href="index.html" class="cancel-btn">
+
+                Cancel
+
+            </a>
+
+            <a href="#" class="logout-btn" onclick="logout()">
+
+                Logout
+
+            </a>
+
+        </div>
+
+    </div>
+
+    <script>
+
+        function logout(){
+
+            localStorage.removeItem("cart");
+
+            alert("Logged Out Successfully ✅");
+
+            window.location.href = "login.html";
+
+        }
+
+    </script>
+
+    <div id="footer"></div>
+
+</body>
+
+</html>
