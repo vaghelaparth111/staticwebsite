@@ -7,200 +7,199 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Cart Page</title>
+    <script src="https://code.jquery.com/jquery-3.3.1.js"
+        integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+    <script>
+        $(function () {
+            $("#header").load("header.html");
+            $("#footer").load("footer.html");
+        });
+    </script>
 
     <style>
-
-        *{
-            margin:0;
-            padding:0;
-            box-sizing:border-box;
-            font-family:Arial, sans-serif;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        .cart{
+            padding: 20px 100px;
         }
 
-        body{
-            background:#f5f5f5;
-            padding:40px 8%;
+        .cart-title {
+            text-align: center;
+            margin-bottom: 50px;
         }
 
-        .cart-title{
-            text-align:center;
-            margin-bottom:50px;
+        .cart-title h1 {
+            font-size: 50px;
+            color: #111827;
         }
 
-        .cart-title h1{
-            font-size:50px;
-            color:#111827;
+        .cart-title span {
+            color: #6c63ff;
         }
 
-        .cart-title span{
-            color:#6c63ff;
+        .cart-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
         }
 
-        .cart-container{
-            display:grid;
-            grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-            gap:30px;
+        .cart-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            transition: 0.3s;
         }
 
-        .cart-card{
-            background:white;
-            border-radius:20px;
-            overflow:hidden;
-            box-shadow:0 5px 20px rgba(0,0,0,0.08);
-            transition:0.3s;
+        .cart-card:hover {
+            transform: translateY(-8px);
         }
 
-        .cart-card:hover{
-            transform:translateY(-8px);
+        .cart-card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
         }
 
-        .cart-card img{
-            width:100%;
-            height:250px;
-            object-fit:cover;
+        .cart-content {
+            padding: 25px;
         }
 
-        .cart-content{
-            padding:25px;
+        .cart-content h2 {
+            margin-bottom: 10px;
+            color: #111827;
         }
 
-        .cart-content h2{
-            margin-bottom:10px;
-            color:#111827;
+        .price {
+            color: #6c63ff;
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 15px;
         }
 
-        .price{
-            color:#6c63ff;
-            font-size:24px;
-            font-weight:bold;
-            margin-bottom:15px;
+        .quantity {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
         }
 
-        .quantity{
-            display:flex;
-            align-items:center;
-            gap:15px;
-            margin-bottom:20px;
+        .quantity button {
+            width: 35px;
+            height: 35px;
+            border: none;
+            background: #6c63ff;
+            color: white;
+            font-size: 20px;
+            border-radius: 5px;
+            cursor: pointer;
         }
 
-        .quantity button{
-            width:35px;
-            height:35px;
-            border:none;
-            background:#6c63ff;
-            color:white;
-            font-size:20px;
-            border-radius:5px;
-            cursor:pointer;
+        .remove-btn {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            background: #ef4444;
+            color: white;
+            border-radius: 10px;
+            cursor: pointer;
+            margin-bottom: 10px;
+            transition: 0.3s;
         }
 
-        .remove-btn{
-            width:100%;
-            padding:12px;
-            border:none;
-            background:#ef4444;
-            color:white;
-            border-radius:10px;
-            cursor:pointer;
-            margin-bottom:10px;
-            transition:0.3s;
+        .remove-btn:hover {
+            background: #dc2626;
         }
 
-        .remove-btn:hover{
-            background:#dc2626;
+        .checkout-btn {
+            width: 100%;
+            padding: 14px;
+            border: none;
+            background: #10b981;
+            color: white;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: 0.3s;
         }
 
-        .checkout-btn{
-            width:100%;
-            padding:14px;
-            border:none;
-            background:#10b981;
-            color:white;
-            border-radius:10px;
-            cursor:pointer;
-            font-size:16px;
-            transition:0.3s;
+        .checkout-btn:hover {
+            background: #059669;
         }
 
-        .checkout-btn:hover{
-            background:#059669;
+        .total-section {
+            margin-top: 50px;
+            text-align: right;
         }
 
-        .total-section{
-            margin-top:50px;
-            text-align:right;
+        .total-section h2 {
+            font-size: 35px;
+            color: #111827;
+            margin-bottom: 20px;
         }
 
-        .total-section h2{
-            font-size:35px;
-            color:#111827;
-            margin-bottom:20px;
+        .total-section span {
+            color: #6c63ff;
         }
 
-        .total-section span{
-            color:#6c63ff;
+        .payment-btn {
+            padding: 15px 35px;
+            background: #6c63ff;
+            color: white;
+            text-decoration: none;
+            border-radius: 10px;
+            display: inline-block;
+            transition: 0.3s;
         }
 
-        .payment-btn{
-            padding:15px 35px;
-            background:#6c63ff;
-            color:white;
-            text-decoration:none;
-            border-radius:10px;
-            display:inline-block;
-            transition:0.3s;
+        .payment-btn:hover {
+            background: #5548e8;
         }
 
-        .payment-btn:hover{
-            background:#5548e8;
+        .empty-cart {
+            text-align: center;
+            font-size: 25px;
+            color: gray;
+            margin-top: 100px;
         }
-
-        .empty-cart{
-            text-align:center;
-            font-size:25px;
-            color:gray;
-            margin-top:100px;
-        }
-
-        @media(max-width:768px){
-
-            .cart-title h1{
-                font-size:40px;
-            }
-
-            .total-section{
-                text-align:center;
-            }
-
-        }
-
     </style>
 
 </head>
 
 <body>
 
-    <div class="cart-title">
+    <div id="header"></div>
+    
+    <div class="cart">
 
-        <h1>My <span>Cart</span></h1>
+        <div class="cart-title">
 
+            <h1>My <span>Cart</span></h1>
+
+        </div>
+
+        <div class="cart-container" id="cartContainer">
+
+        </div>
+
+        <div class="total-section">
+
+            <h2>
+                Total : ₹<span id="totalPrice">0</span>
+            </h2>
+
+            <a href="payment.html" class="payment-btn">
+                Proceed To Payment
+            </a>
+
+        </div>
     </div>
 
-    <div class="cart-container" id="cartContainer">
-
-    </div>
-
-    <div class="total-section">
-
-        <h2>
-            Total : ₹<span id="totalPrice">0</span>
-        </h2>
-
-        <a href="payment.html" class="payment-btn">
-            Proceed To Payment
-        </a>
-
-    </div>
+    <div id="footer"></div>
 
     <script>
 
@@ -208,19 +207,19 @@
 
         let container = document.getElementById("cartContainer");
 
-        function displayCart(){
+        function displayCart() {
 
             container.innerHTML = "";
 
             let total = 0;
 
-            if(cart.length === 0){
+            if (cart.length === 0) {
 
                 container.innerHTML = `
 
                     <div class="empty-cart">
 
-                        Your Cart Is Empty 🛒
+                        Your Cart Is Empty
 
                     </div>
 
@@ -232,7 +231,7 @@
 
             }
 
-            cart.forEach((item,index)=>{
+            cart.forEach((item, index) => {
 
                 total += item.price * item.quantity;
 
@@ -284,7 +283,7 @@
 
         }
 
-        function increaseQuantity(index){
+        function increaseQuantity(index) {
 
             cart[index].quantity++;
 
@@ -294,9 +293,9 @@
 
         }
 
-        function decreaseQuantity(index){
+        function decreaseQuantity(index) {
 
-            if(cart[index].quantity > 1){
+            if (cart[index].quantity > 1) {
 
                 cart[index].quantity--;
 
@@ -308,9 +307,9 @@
 
         }
 
-        function removeItem(index){
+        function removeItem(index) {
 
-            cart.splice(index,1);
+            cart.splice(index, 1);
 
             localStorage.setItem("cart", JSON.stringify(cart));
 

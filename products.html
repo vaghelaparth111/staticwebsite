@@ -4,142 +4,154 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Products</title>
-<script src="https://code.jquery.com/jquery-3.3.1.js"
+    <title>Product Page</title>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.js"
         integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+
     <script>
         $(function () {
             $("#header").load("header.html");
             $("#footer").load("footer.html");
         });
     </script>
+
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: Arial;
-        }
-
-        body {
-            background: #f5f5f5;
-        }
-
-        .featured {
-            padding: 20px;
-        }
-
-        .featured h2{
-            margin: 20px;
-            padding: 7px;
-            border-left :10px solid blue;
+            font-family: Arial, sans-serif;
         }
 
         .products {
-            display: flex;
-            gap: 50px;
-            flex-wrap: wrap;
-            padding: 0px 275px;
+            padding: 20px 250px;
         }
 
-        .product-item {
-            width: 220px;
+        .product-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .product-card {
             background: white;
-            padding: 10px;
-            border-radius: 10px;
-            box-shadow: 0 0 5px gray;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            transition: 0.3s;
         }
 
-        .product-item img {
+        .product-card:hover {
+            transform: translateY(-8px);
+        }
+
+        .product-card img {
             width: 100%;
-            height: 220px;
+            height: 250px;
             object-fit: cover;
         }
 
-        .add-cart {
-            margin-top: 10px;
-            padding: 10px;
-            width: 100%;
-            border: none;
-            background: blue;
-            color: white;
-            border-radius: 5px;
-            cursor: pointer;
+        .product-content {
+            padding: 25px;
         }
 
-        .add-cart:hover {
-            background: darkblue;
+        .product-content h3 {
+            margin-bottom: 10px;
+
+            color: #111827;
+        }
+
+        .price {
+            font-size: 20px;
+            margin-bottom: 15px;
+        }
+
+        .add {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            background: #10b981;
+            color: white;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .add:hover {
+            background: #059669;
         }
     </style>
+
 </head>
 
 <body>
-
     <div id="header"></div>
 
-    <section class="featured">
+    <div class="products">
 
-        <h2>Fashion</h2>
-
-        <div class="products">
-
-            <div class="product-item">
-                <img src="https://res.cloudinary.com/dksz8hsb4/image/upload/v1749317394/qspwwat75xd9kdzthjst.jpg">
-
-                <h3>Blury T-Shirt</h3>
-
-                <p>$59.99</p>
-
-                <button onclick="addToCart('Blury T-Shirt', 59.99)" class="add-cart">
-                    Add To Cart
-                </button>
-            </div>
-
-            <div class="product-item">
-                <img src="https://res.cloudinary.com/dksz8hsb4/image/upload/v1749316771/hpyj5fppm4lhgtylzm04.webp">
-
-                <h3>Bandhani Saree</h3>
-
-                <p>$79.99</p>
-
-                <button onclick="addToCart('Bandhani Saree', 79.99)" class="add-cart">
-                    Add To Cart
-                </button>
-            </div>
-
-            <div class="product-item">
-                <img src="https://res.cloudinary.com/dksz8hsb4/image/upload/v1749228085/x8zzx5ouglznx7dztfrj.webp">
-
-                <h3>Ladies Bag</h3>
-
-                <p>$35.99</p>
-
-                <button onclick="addToCart('Ladies Bag', 35.99)" class="add-cart">
-                    Add To Cart
-                </button>
-            </div>
-
+        <div class="product-container" id="productContainer">
+            <!-- Products will be injected here -->
         </div>
-    </section>
+    </div>
+
+    <div id="footer"></div>
 
     <script>
+        // Sample product data
+        let products = [
+            {
+                name: "Wireless Sharee",
+                price: 1500,
+                image: "https://res.cloudinary.com/dksz8hsb4/image/upload/v1749316771/hpyj5fppm4lhgtylzm04.webp"
+            },
+            {
+                name: "Smart Sharee",
+                price: 2500,
+                image: "https://res.cloudinary.com/dksz8hsb4/image/upload/v1749316771/hpyj5fppm4lhgtylzm04.webp"
+            },
+            {
+                name: "Bluetooth Sharee",
+                price: 1200,
+                image: "https://res.cloudinary.com/dksz8hsb4/image/upload/v1749316771/hpyj5fppm4lhgtylzm04.webp"
+            },
+        ];
 
-        function addToCart(name, price) {
+        let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-            let cart = JSON.parse(localStorage.getItem("cart")) || [];
+        let container = document.getElementById("productContainer");
 
-            cart.push({
-                name: name,
-                price: price
+        function displayProducts() {
+            container.innerHTML = "";
+            products.forEach((product, index) => {
+                container.innerHTML += `
+                    <div class="product-card">
+                        <img src="${product.image}">
+                        <div class="product-content">
+                            <h3>${product.name}</h3>
+                            <div class="price">$${product.price}</div>
+                            <button class="add" onclick="addToCart(${index})">Add to Cart</button>
+                        </div>
+                    </div>
+                `;
             });
-
-            localStorage.setItem("cart", JSON.stringify(cart));
-
-            alert("Product Added To Cart");
         }
 
+        function addToCart(index) {
+            let product = products[index];
+            let existing = cart.find(item => item.name === product.name);
+            if (existing) {
+                existing.quantity += 1;
+            } else {
+                cart.push({ ...product, quantity: 1 });
+            }
+            localStorage.setItem("cart", JSON.stringify(cart));
+            alert(`${product.name} added to cart!`);
+        }
+
+        displayProducts();
     </script>
-    <div id="footer"></div>
+
 </body>
 
 </html>
