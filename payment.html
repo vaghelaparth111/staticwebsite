@@ -139,123 +139,58 @@
     <div id="header"></div>
     <div id="payment-container">
     <div class="payment-container">
-        
         <div class="payment-left">
-
             <h1>Secure Payment</h1>
-
-            <p>
-                Complete your payment safely and securely.
-                ShopVerse provides trusted payment methods
-                for a smooth shopping experience.
-            </p>
-
+            <p>Complete your payment safely and securely. ShopVerse provides trusted payment methods for a smooth shopping experience.</p>
         </div>
-
         <div class="payment-right">
-
             <h2>Payment Details</h2>
-
-            <p>
-                Enter your payment information below
-            </p>
-
+            <p>Enter your payment information below</p>
             <div class="payment-icons">
-
                 <div>VISA</div>
                 <div>MasterCard</div>
                 <div>UPI</div>
-
             </div>
-
             <form id="paymentForm">
-
                 <div class="input-box">
-
                     <input type="text" placeholder="Card Holder Name" required>
-
                 </div>
-
                 <div class="input-box">
-
                     <input type="text" placeholder="Card Number" maxlength="16" required>
-
                 </div>
-
                 <div class="row">
-
                     <div class="input-box">
-
                         <input type="text" placeholder="Expiry Date" required>
-
                     </div>
-
                     <div class="input-box">
-
                         <input type="password" placeholder="CVV" maxlength="3" required>
-
                     </div>
-
                 </div>
-
                 <div class="input-box">
-
                     <select required>
-
-                        <option value="">
-                            Select Payment Method
-                        </option>
-
-                        <option>
-                            Credit Card
-                        </option>
-
-                        <option>
-                            Debit Card
-                        </option>
-
-                        <option>
-                            UPI
-                        </option>
-
+                        <option value="">Select Payment Method</option>
+                        <option>Credit Card</option>
+                        <option>Debit Card</option>
+                        <option>UPI</option>
                     </select>
-
                 </div>
-
-                <button class="pay-btn" type="submit">
-
-                    Pay Now
-
-                </button>
-
+                <button class="pay-btn" type="submit">Pay Now</button>
             </form>
-
         </div>
-
     </div>
     </div>
     <script>
 
         let form = document.getElementById("paymentForm");
-
         form.addEventListener("submit", function (e) {
-
             e.preventDefault();
-
             let cart = JSON.parse(localStorage.getItem("cart")) || [];
-
             let orders = JSON.parse(localStorage.getItem("orders")) || [];
-
             orders.push(...cart);
-
             localStorage.setItem("orders", JSON.stringify(orders));
-
             localStorage.removeItem("cart");
-
-            alert("Payment Successful ✅");
-
+            alert("Payment Successful ");
             window.location.href = "orderhistory.html";
-
         });
 
     </script>
