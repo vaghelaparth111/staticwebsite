@@ -7,192 +7,202 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Order History</title>
-
+    <script src="https://code.jquery.com/jquery-3.3.1.js"
+        integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+    <script>
+        $(function () {
+            $("#header").load("header.html");
+            $("#footer").load("footer.html");
+        });
+    </script>
     <style>
-
-        *{
-            margin:0;
-            padding:0;
-            box-sizing:border-box;
-            font-family:Arial, sans-serif;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
         }
 
-        body{
-            background:#f5f5f5;
-            padding:40px 8%;
+        .order{
+            padding:30px 10%;
         }
 
-        .order-title{
-            text-align:center;
-            margin-bottom:50px;
+
+        .order-title {
+            text-align: center;
+            margin-bottom: 50px;
         }
 
-        .order-title h1{
-            font-size:50px;
-            color:#111827;
+        .order-title h1 {
+            font-size: 50px;
+            color: #111827;
         }
 
-        .order-title span{
-            color:#6c63ff;
+        .order-title span {
+            color: #6c63ff;
         }
 
-        .orders-container{
-            display:grid;
-            grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
-            gap:30px;
+        .orders-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
         }
 
-        .order-card{
-            background:white;
-            border-radius:20px;
-            overflow:hidden;
-            box-shadow:0 5px 20px rgba(0,0,0,0.08);
-            transition:0.3s;
+        .order-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            transition: 0.3s;
         }
 
-        .order-card:hover{
-            transform:translateY(-8px);
+        .order-card:hover {
+            transform: translateY(-8px);
         }
 
-        .order-card img{
-            width:100%;
-            height:250px;
-            object-fit:cover;
+        .order-card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
         }
 
-        .order-content{
-            padding:25px;
+        .order-content {
+            padding: 25px;
         }
 
-        .order-content h2{
-            margin-bottom:10px;
-            color:#111827;
+        .order-content h2 {
+            margin-bottom: 10px;
+            color: #111827;
         }
 
-        .price{
-            color:#6c63ff;
-            font-size:24px;
-            font-weight:bold;
-            margin-bottom:15px;
+        .price {
+            color: #6c63ff;
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 15px;
         }
 
-        .order-info{
-            margin-bottom:10px;
-            color:#6b7280;
+        .order-info {
+            margin-bottom: 10px;
+            color: #6b7280;
         }
 
-        .status{
-            display:inline-block;
-            margin-top:15px;
-            padding:8px 18px;
-            background:#10b981;
-            color:white;
-            border-radius:30px;
-            font-size:14px;
+        .status {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 8px 18px;
+            background: #10b981;
+            color: white;
+            border-radius: 30px;
+            font-size: 14px;
         }
 
-        .empty-orders{
-            text-align:center;
-            font-size:28px;
-            color:gray;
-            margin-top:100px;
+        .empty-orders {
+            text-align: center;
+            font-size: 28px;
+            color: gray;
+            margin-top: 100px;
         }
-
     </style>
 
 </head>
 
 <body>
+    <div id="header"></div>
 
-    <div class="order-title">
+    <div class="order">
 
-        <h1>Order <span>History</span></h1>
+        <div class="order-title">
 
-    </div>
+            <h1>Order <span>History</span></h1>
 
-    <div class="orders-container" id="ordersContainer">
+        </div>
 
-    </div>
+        <div class="orders-container" id="ordersContainer">
 
-    <script>
+        </div>
 
-        let orders = JSON.parse(localStorage.getItem("orders")) || [];
+        <script>
 
-        let container = document.getElementById("ordersContainer");
+            let orders = JSON.parse(localStorage.getItem("orders")) || [];
 
-        function displayOrders(){
+            let container = document.getElementById("ordersContainer");
 
-            if(orders.length === 0){
+            function displayOrders() {
 
-                container.innerHTML = `
+                if (orders.length === 0) {
 
-                    <div class="empty-orders">
+                    container.innerHTML = `
+                
+                <div class="empty-orders">
 
                         No Orders Found
+                        
+                        </div>
+                        
+                        `;
 
-                    </div>
+                    return;
 
-                `;
+                }
 
-                return;
+                orders.forEach((item, index) => {
 
-            }
-
-            orders.forEach((item,index)=>{
-
-                container.innerHTML += `
+                    container.innerHTML += `
 
                     <div class="order-card">
 
                         <img src="${item.image}">
-
+                        
                         <div class="order-content">
-
+                            
                             <h2>${item.name}</h2>
 
                             <div class="price">
-
+                                
                                 ₹${item.price}
-
-                            </div>
-
-                            <div class="order-info">
-
-                                Quantity : ${item.quantity}
-
-                            </div>
-
-                            <div class="order-info">
-
+                                
+                                </div>
+                                
+                                <div class="order-info">
+                                    
+                                    Quantity : ${item.quantity}
+                                    
+                                    </div>
+                                    
+                                    <div class="order-info">
+                                        
                                 Order ID : #SV${1000 + index}
+                                
+                                </div>
+                                
+                                <div class="order-info">
+                                    
+                                    Payment : Successful
+                                    
+                                    </div>
+                                    
+                                    <span class="status">
+                                        
+                                        Delivered
 
-                            </div>
+                                        </span>
 
-                            <div class="order-info">
+                                        </div>
+                                        
+                                        </div>
+                                        
+                                        `;
 
-                                Payment : Successful
+                });
 
-                            </div>
+            }
 
-                            <span class="status">
+            displayOrders();
 
-                                Delivered
-
-                            </span>
-
-                        </div>
-
-                    </div>
-
-                `;
-
-            });
-
-        }
-
-        displayOrders();
-
-    </script>
+        </script>
+    </div>
+    <div id="footer"></div>
 
 </body>
 
