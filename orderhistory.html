@@ -23,8 +23,8 @@
             font-family: Arial, sans-serif;
         }
 
-        .order{
-            padding:30px 10%;
+        .order {
+            padding: 30px 10%;
         }
 
 
@@ -111,95 +111,42 @@
     <div id="header"></div>
 
     <div class="order">
-
         <div class="order-title">
-
             <h1>Order <span>History</span></h1>
-
         </div>
-
         <div class="orders-container" id="ordersContainer">
-
         </div>
-
         <script>
-
             let orders = JSON.parse(localStorage.getItem("orders")) || [];
-
             let container = document.getElementById("ordersContainer");
-
             function displayOrders() {
-
                 if (orders.length === 0) {
-
                     container.innerHTML = `
-                
-                <div class="empty-orders">
-
-                        No Orders Found
-                        
-                        </div>
-                        
+                <div class="empty-orders">No Orders Found</div>
                         `;
-
                     return;
-
                 }
 
                 orders.forEach((item, index) => {
-
                     container.innerHTML += `
-
                     <div class="order-card">
-
                         <img src="${item.image}">
-                        
                         <div class="order-content">
-                            
                             <h2>${item.name}</h2>
-
-                            <div class="price">
-                                
-                                ₹${item.price}
-                                
+                            <div class="price">₹${item.price}</div>                                
+                                <div class="order-info">Quantity : ${item.quantity}</div>        
+                                    <div class="order-info">Order ID : #SV${1000 + index}
                                 </div>
-                                
-                                <div class="order-info">
-                                    
-                                    Quantity : ${item.quantity}
-                                    
-                                    </div>
-                                    
-                                    <div class="order-info">
-                                        
-                                Order ID : #SV${1000 + index}
-                                
-                                </div>
-                                
-                                <div class="order-info">
-                                    
-                                    Payment : Successful
-                                    
-                                    </div>
-                                    
-                                    <span class="status">
-                                        
-                                        Delivered
-
+                                <div class="order-info">Payment : Successful</div>
+                                    <span class="status">Delivered
                                         </span>
-
                                         </div>
-                                        
                                         </div>
-                                        
                                         `;
-
                 });
 
             }
-
             displayOrders();
-
         </script>
     </div>
     <div id="footer"></div>
