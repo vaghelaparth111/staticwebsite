@@ -38,7 +38,7 @@
         }
 
         .cart-title span {
-            color: #6c63ff;
+            color: blue;
         }
 
         .cart-container {
@@ -75,7 +75,7 @@
         }
 
         .price {
-            color: #6c63ff;
+            color: blue;
             font-size: 24px;
             font-weight: bold;
             margin-bottom: 15px;
@@ -92,7 +92,7 @@
             width: 35px;
             height: 35px;
             border: none;
-            background: #6c63ff;
+            background: blue;
             color: white;
             font-size: 20px;
             border-radius: 5px;
@@ -103,16 +103,12 @@
             width: 100%;
             padding: 12px;
             border: none;
-            background: #ef4444;
+            background: red;
             color: white;
             border-radius: 10px;
             cursor: pointer;
             margin-bottom: 10px;
             transition: 0.3s;
-        }
-
-        .remove-btn:hover {
-            background: #dc2626;
         }
 
         .checkout-btn {
@@ -143,12 +139,12 @@
         }
 
         .total-section span {
-            color: #6c63ff;
+            color: blue;
         }
 
         .payment-btn {
             padding: 15px 35px;
-            background: #6c63ff;
+            background: rgb(46, 46, 255);
             color: white;
             text-decoration: none;
             border-radius: 10px;
@@ -157,7 +153,7 @@
         }
 
         .payment-btn:hover {
-            background: #5548e8;
+            background: blue;
         }
 
         .empty-cart {
@@ -171,152 +167,77 @@
 </head>
 
 <body>
-
     <div id="header"></div>
-    
     <div class="addcart">
-
         <div class="cart-title">
-
-            <h1>My <span>Cart</span></h1>
-
+            <h1>My<span>Cart</span></h1>
         </div>
-
         <div class="cart-container" id="cartContainer">
-
         </div>
-
         <div class="total-section">
-
-            <h2>
-                Total : ₹<span id="totalPrice">0</span>
-            </h2>
-
-            <a href="payment.html" class="payment-btn">
-                Proceed To Payment
-            </a>
-
+            <h2>Total : ₹<span id="totalPrice">0</span></h2>
+            <a href="payment.html" class="payment-btn">Proceed To Payment</a>
         </div>
     </div>
-
     <div id="footer"></div>
-
     <script>
 
         let cart = JSON.parse(localStorage.getItem("cart")) || [];
-
         let container = document.getElementById("cartContainer");
-
         function displayCart() {
-
             container.innerHTML = "";
-
             let total = 0;
-
             if (cart.length === 0) {
-
                 container.innerHTML = `
-
-                    <div class="empty-cart">
-
-                        Your Cart Is Empty
-
-                    </div>
-
+                    <div class="empty-cart">Your Cart Is Empty</div>
                 `;
-
                 document.getElementById("totalPrice").innerText = 0;
-
                 return;
-
             }
 
             cart.forEach((item, index) => {
-
                 total += item.price * item.quantity;
-
                 container.innerHTML += `
-
                     <div class="cart-card">
-
                         <img src="${item.image}">
-
                         <div class="cart-content">
-
                             <h2>${item.name}</h2>
-
                             <div class="price">
-
                                 ₹${item.price * item.quantity}
-
                             </div>
-
                             <div class="quantity">
-
-                                <button onclick="decreaseQuantity(${index})">
-                                    −
-                                </button>
-
+                                <button onclick="decreaseQuantity(${index})">-</button>
                                 <span>${item.quantity}</span>
-
-                                <button onclick="increaseQuantity(${index})">
-                                    +
-                                </button>
-
+                                <button onclick="increaseQuantity(${index})">+</button>
                             </div>
-
-                            <button class="remove-btn" onclick="removeItem(${index})">
-
-                                Remove
-
-                            </button>
-
+                            <button class="remove-btn" onclick="removeItem(${index})">Remove</button>
                         </div>
-
                     </div>
-
                 `;
-
             });
-
             document.getElementById("totalPrice").innerText = total;
-
         }
 
         function increaseQuantity(index) {
-
             cart[index].quantity++;
-
             localStorage.setItem("cart", JSON.stringify(cart));
-
             displayCart();
-
         }
 
         function decreaseQuantity(index) {
-
             if (cart[index].quantity > 1) {
-
                 cart[index].quantity--;
-
             }
-
             localStorage.setItem("cart", JSON.stringify(cart));
-
             displayCart();
 
         }
 
         function removeItem(index) {
-
             cart.splice(index, 1);
-
             localStorage.setItem("cart", JSON.stringify(cart));
-
             displayCart();
-
         }
-
         displayCart();
 
     </script>
